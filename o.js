@@ -3,13 +3,22 @@ class O extends Mark {
     super(x, y, w, h, sWidth);
   }
 
-  drawMark(makeTransparent) {
-    push();
-    translate(this.x, this.y);
-    stroke(0, 0, 255, (makeTransparent ? 100 : 255));
-    strokeWeight(this.sWidth);
-    noFill();
-    ellipse(this.w/2, this.h/2, this.w/12*9, this.h/12*9);
-    pop();
+  drawMark(isBig) {
+    if (isBig) {
+      push();
+      translate(this.x, this.y);
+      fill(0, 0, 255, 75);
+      noStroke();
+      rect(0, 0, this.w, this.h);
+      pop();
+    } else {
+      push();
+      translate(this.x, this.y);
+      stroke(0, 0, 255);
+      strokeWeight(this.sWidth);
+      noFill();
+      ellipse(this.w/2, this.h/2, this.w/3*2, this.h/3*2);
+      pop();
+    }
   }
 }

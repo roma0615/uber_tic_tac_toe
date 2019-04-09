@@ -37,11 +37,11 @@ function draw() {
   // draw dem grids
   for (let i = 0; i < grids.length; i++) {
     if (placeAnywhere) { // if its either the first turn or you've been redirected to a grid that is full
-      let col = (grids[i].hovering() && !grids[i].gridFinished ? 255 : 100);
+      let col = (grids[i].hovering() && !grids[i].gridFinished ? 255 : 50);
       let weight = (grids[i].hovering() && !grids[i].gridFinished ? 4 : 2);
       grids[i].drawGrid(color(col), weight);
     } else {
-      let col = (grids[i].active() ? 255 : 100);
+      let col = (grids[i].active() ? 255 : 50);
       let weight = (grids[i].active() ? 4 : 2);
       grids[i].drawGrid(color(col), weight); ///////////////////////////////////////
     }

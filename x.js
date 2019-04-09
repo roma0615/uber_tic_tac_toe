@@ -3,13 +3,22 @@ class X extends Mark {
     super(x, y, w, h, sWidth);
   }
 
-  drawMark(makeTransparent) {
-    push();
-    translate(this.x, this.y);
-    stroke(255, 0, 0, (makeTransparent ? 100 : 255));
-    strokeWeight(this.sWidth);
-    line(this.w/12, this.h/12, this.w/12*11, this.h/12*11);
-    line(this.w/12, this.h/12*11, this.w/12*11, this.h/12);
-    pop();
+  drawMark(isBig) {
+    if (isBig) {
+      push();
+      translate(this.x, this.y);
+      fill(255, 0, 0, 75);
+      noStroke();
+      rect(0, 0, this.w, this.h);
+      pop();
+    } else {
+      push();
+      translate(this.x, this.y);
+      stroke(255, 0, 0);
+      strokeWeight(this.sWidth);
+      line(this.w/5, this.h/5, this.w/5*4, this.h/5*4);
+      line(this.w/5, this.h/5*4, this.w/5*4, this.h/5);
+      pop();
+    }
   }
 }
